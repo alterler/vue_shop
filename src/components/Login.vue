@@ -6,15 +6,27 @@
         <img src="../assets/logo.png" />
       </div>
       <!-- 表单 -->
-      <el-form ref="LoginFormRef" :model="LoginForm" :rules="LoginFormRule" class="form_box">
+      <el-form
+        ref="LoginFormRef"
+        :model="LoginForm"
+        :rules="LoginFormRule"
+        class="form_box"
+      >
         <el-form-item prop="username">
-          <el-input v-model="LoginForm.username" prefix-icon="el-icon-user"></el-input>
+          <el-input
+            v-model="LoginForm.username"
+            prefix-icon="el-icon-user"
+          ></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="LoginForm.password" type="password" prefix-icon="el-icon-user"></el-input>
+          <el-input
+            v-model="LoginForm.password"
+            type="password"
+            prefix-icon="el-icon-user"
+          ></el-input>
         </el-form-item>
         <el-form-item class="btns">
-          <el-button type="primary" @click="Login()">登录</el-button>
+          <el-button type="primary" @click="Login">登录</el-button>
           <el-button type="info" @click="ResetForm">重置</el-button>
         </el-form-item>
       </el-form>
@@ -24,7 +36,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       LoginForm: {
         username: 'admin',
@@ -53,15 +65,17 @@ export default {
     }
   },
   methods: {
-    ResetForm () {
+    ResetForm() {
       this.$refs.LoginFormRef.resetFields()
     },
-    Login () {
+    Login() {
       this.$refs.LoginFormRef.validate(async valid => {
         if (!valid) return
         // eslint-disable-next-line no-unused-vars
         const { data: res } = await this.$http.post('login', this.LoginForm)
-        if (res.meta.status !== 200) { return this.$message.error('登录失败！') }
+        if (res.meta.status !== 200) {
+          return this.$message.error('登录失败！')
+        }
         this.$message.success('登录成功')
         window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')

@@ -130,7 +130,7 @@ export default {
       cateDialogVisible: false,
       newCate: {
         cat_pid: 0,
-        cat_name: 'we',
+        cat_name: '',
         cat_level: 0
       },
       newCateRule: {
@@ -144,8 +144,7 @@ export default {
         value: 'cat_id',
         label: 'cat_name',
         children: 'children',
-        expandTrigger: 'hover',
-        checkStrictly: true
+        expandTrigger: 'hover'
       }
     }
   },

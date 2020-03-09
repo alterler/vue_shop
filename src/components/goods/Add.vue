@@ -209,7 +209,6 @@ export default {
     },
     handlePreview(file) {
       this.previewPath = file.response.data.url
-      console.log(this.previewPath)
       this.picDialogVisible = true
     },
     handleRemove(file) {
@@ -243,7 +242,6 @@ export default {
           this.addGoodsForm.attrs.push(newInfo)
         })
         form.attrs = this.addGoodsForm.attrs
-        console.log(form)
         // 发起请求添加商品
         // 商品的名称，必须是唯一的
         const { data: res } = await this.$http.post('goods', form)

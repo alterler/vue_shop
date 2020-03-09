@@ -42,7 +42,7 @@
                          prop="add_time"
                          width="160px">
           <template slot-scope="scope">
-            {{scope.row.add_time | dataFormat}}</template></el-table-column>
+            {{scope.row.add_time | dateFormat}}</template></el-table-column>
         <el-table-column label="操作"
                          width="130px">
           <template slot-scope="scope">

@@ -28,7 +28,7 @@ Vue.component('tree-table', TreeTable)
 Vue.use(VueQuillEditor /* { default global options } */)
 
 // 注册时间格式函数
-Vue.filter('dataFormat', (originVal) => {
+Vue.filter('dateFormat', (originVal) => {
   const dt = new Date(originVal)
 
   const y = dt.getFullYear()
